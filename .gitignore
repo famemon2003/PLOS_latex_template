@@ -1,0 +1,16 @@
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+*.lof
+*.lot
+# a .bbl is not needed: the bibliography is embedded in main.tex
+*.bbl
+# editor and OS files
+.DS_Store
+Thumbs.db
