@@ -90,7 +90,7 @@ configuration was compiled from the real builder three times.
 | Float-only pages under 70% full | ≤ 2 | 1 | |
 | Float-only pages | ≤ 4 | 6 (5 hold a figure) | The planned count did not allow for the long tables: Table 1 fills p 9 and Table 3 shares p 15 with Fig 11. The five figure pages are Fig 1 (5.9 in with caption, 70% of the text height) and the paired pages 12, 14 and 17; all but p 14 are more than 90% full. Recorded as a deviation from the plan |
 | Largest gap | ≤ 2, ≥ 80% at ≤ 1 | 2; 86% | |
-| Pages | target ≤ 27 | 28 | The body is 8,871 words after the scientific review restored qualifications (TRIAGE.md) |
+| Pages | target ≤ 27 | 28 | The body is 8,882 words by the drafting gate (8,871 as rendered), unchanged from PLOS_2 after the scientific review restored qualifications (TRIAGE.md) |
 
 ## 4. Residual defects, each with its cause
 
@@ -100,7 +100,7 @@ configuration was compiled from the real builder three times.
 | Reading p 14 | Float page with Figs 9 and 10, 66% full, top-aligned | Both figures are cited in one paragraph on p 13, and together they are too tall to share p 13 with Fig 8 | Accepted |
 | Reading p 6 | Band of about 6% at the foot of the page | The heading "External transfer assessment" is kept with its first lines | Normal heading behaviour |
 | Reading p 28 | Last page 31% used | End of the Supporting information list | Normal |
-| Submission p 2 | Last two lines of the abstract, then the page break into body geometry | Template title-page geometry (5.25 in measure, double spacing) followed by the body `\newgeometry`. PLOS_2's submission copy had the same spill. A filled author block will lengthen page 1 anyway | Accepted; template-compliant |
+| Submission p 2 | Last two lines of the abstract, then the page break into body geometry | Template title-page geometry (5.25 in measure, double spacing) followed by the body `\newgeometry`. The M12 submission copy had the same spill. A filled author block will lengthen page 1 anyway | Accepted; template-compliant |
 
 ## 5. Figures and captions as printed (reading copy)
 
