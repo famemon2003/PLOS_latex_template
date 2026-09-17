@@ -1,7 +1,10 @@
-# Format specification: compact reading copy and submission copy (M13, D-0079)
+# Format specification: compact reading draft and submission copy (M14, D-0080)
 
-**Governs:** `scripts/m11_build_latex.py` (build) and `scripts/m11_verify_latex.py` (checks). Supersedes the M12
-specification (`staging/presentation_revision/FORMAT_SPEC.md`).
+*This note is a record of the manuscript's preparation. It names files in the manuscript's own working tree, which is not part of this repository; only the LaTeX sources, figures, bibliography, compiled PDFs and these notes are distributed here.*
+
+
+**Governs:** `scripts/m11_build_latex.py` (build) and `scripts/m11_verify_latex.py` (checks). Supersedes the M13
+specification (`staging/plos2_compact_revision/FORMAT_SPEC.md`); M14 changes are marked.
 **Rules source:**
 - the official PLOS LaTeX template v3.8 (Apr 2026) in `submission/PLOS_latex_template.zip`;
 - the PLOS Water pages checked live on 2026-09-17 (`OFFICIAL_ROUTES_2026-09-17.md`);
@@ -29,9 +32,9 @@ and the verifier checks that nothing else differs.
 | Table notes | numbered notes; en dash = not available; "n/a" = not applicable | M6 |
 | References | `plos2025.bst` output embedded as `thebibliography`; URLs in the text font; no line break after a URL scheme's colon (`\UrlNoBreaks` adds ":") | template; M13 reference QA |
 | Font encoding | T1; Type 1 fonts embedded | M12 |
-| Display placement | `flafter` (never before the citing paragraph); `\FloatBarrier` before each section, before subsections 4.1 and 4.2, and before Acknowledgments | M13 sweep (`PAGE_LAYOUT_QA.md` §3) |
-| Float parameters | top 0.9, bottom 0.8, text 0.07, float page 0.65; up to 3 top, 2 bottom, 4 total; float-page content top-aligned | M13 sweep |
-| End matter | Acknowledgments → References → Supporting information captions | PLOS submission guidelines |
+| Display placement | `flafter` (never before the citing paragraph); `\FloatBarrier` before each section and before Acknowledgments (M14: the M13 barriers before 4.1 and 4.2 removed) | M14 sweep (`R3_PAGE_LAYOUT_AUDIT.md`) |
+| Float parameters | top 0.9, bottom 0.8, text 0.07, float page 0.8 (M14); up to 3 top, 2 bottom, 4 total | M14 sweep |
+| End matter | submission: Acknowledgments → References → Supporting information captions (PLOS order); reading draft: see Mode differences | PLOS submission guidelines |
 | PDF metadata | neutral title; empty author, subject, keywords and creator; no dates; links without coloured boxes | M12 privacy |
 | Placeholders | "Title: TO BE FILLED LATER", "Authors: …", "Affiliations: …", "Corresponding author email: …", "Further acknowledgments: TO BE FILLED LATER" | author request |
 
@@ -48,6 +51,9 @@ and the verifier checks that nothing else differs.
 | Figures | vector PDF from `figures/<id>.pdf` at print size (`\includegraphics` without scaling); Malawi map (4.2 in) set beside its caption in two minipages | none: caption and label only; figures uploaded as `figures/upload/FigN.tif` | PLOS: "Do not include figures in your PDF" (submission) |
 | Figure float option | `[!htbp]` | `[!ht]` | — |
 | Line numbers | none | continuous from the Introduction; off for references (template convention); on for the SI captions | PLOS: continuous line numbers |
+| Float pages | top-packed: `\@fptop` 0 pt, `\@fpsep` 10 pt plus 2 pt minus 2 pt, `\@fpbot` 0 pt plus 1fil, so spare space falls at the foot and never between floats (M14) | template defaults | — |
+| Figure placement | `[!htbp]`; Fig 1 (workflow) `[!tb]`, so it is set at a page top with text below rather than alone on a float page (M14); Malawi map and caption in top-aligned minipages (M14) | `[!ht]` | — |
+| End matter | Acknowledgments → **Supporting information** → References (M14, author request) | Acknowledgments → References → Supporting information captions | PLOS submission guidelines (submission) |
 | Where the settings live | one delimited block `% >>> READING PROFILE … % <<< READING PROFILE` before `\begin{document}` | — | M13 |
 
 The reading-profile block may contain only:
@@ -56,7 +62,8 @@ The reading-profile block may contain only:
 - `\fancyhfoffset[L]{0pt}`;
 - the three float-separation lengths;
 - `\captionsetup` (including for long tables);
-- `\AtBeginEnvironment{thebibliography}{\small}` and `\apptocmd{\thebibliography}{…}`.
+- `\AtBeginEnvironment{thebibliography}{\small}` and `\apptocmd{\thebibliography}{…}`;
+- one `\makeatletter … \makeatother` line setting `\@fptop`, `\@fpsep` and `\@fpbot` (M14).
 
 The verifier checks the block's position and its commands. Every other line of the two files is identical.
 
@@ -69,7 +76,7 @@ in `FIGURE_LAYOUT_REGISTER.csv`.
 
 ## Checks that enforce this specification
 
-`scripts/m11_verify_latex.py`, 325 checks across both modes. Among others:
+`scripts/m11_verify_latex.py`, 343 checks across both modes (M14). Among others:
 - **Structure:** template packages verbatim; the reading-profile block, its position and its allowed commands; the
   submission geometry string.
 - **Pages:** the footer rule inside each mode's margins on every page; page n/N.
@@ -83,7 +90,8 @@ in `FIGURE_LAYOUT_REGISTER.csv`.
 - **Across modes:** identical bibliographies; every submission word present in the reading PDF, independent of line
   breaks and hyphenation.
 - **Text:** protected qualifications present in both, including the AI-disclosure review status; superseded wording
-  absent.
+  absent; "retrospective(ly)" absent outside Materials and methods and at most once there (M14).
+- **End matter:** order checked per mode; the SI block is compared across modes at one position (M14).
 
 ## Deviations from the template, each with its reason
 
@@ -93,5 +101,5 @@ in `FIGURE_LAYOUT_REGISTER.csv`.
 3. `\hypersetup{hidelinks,…}` and PDF metadata suppression, for privacy and a clean copy.
 4. Submission body pages use 1 in margins with the footer offset reset (M11, M12).
 5. The reading copy uses its own compact geometry and type sizes (this specification), for reading and review only.
-6. End matter follows the journal's submission guidelines, not the template sample.
+6. End matter follows the journal's submission guidelines in the submission form; the reading draft lists the Supporting information before the References at the author's request (M14).
 7. The abstract is justified locally (author request); the body stays ragged right.

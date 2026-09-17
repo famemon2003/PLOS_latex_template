@@ -10,8 +10,8 @@ corresponding author email, further acknowledgments, and the author's verificati
 
 | File | What it is | Output |
 |---|---|---|
-| `main.tex` | **Compact reading copy.** One 19 mm text grid from page 1, 10 pt body, 9 pt captions and references, figures embedded at print size after the paragraph that first cites them, no line numbers. Compiles by default on Overleaf. An author-prepared layout for reading and review, not the journal's typeset article. | `pdf/PLOS_Water_COMPACT_READING_REVISED.pdf` |
-| `PLOS_Water_manuscript_submission.tex` | **PLOS submission form.** Template geometry, captions only (PLOS asks for figures as separate files), continuous line numbers, double spacing, Supporting information captions after the references. | `pdf/PLOS_Water_SUBMISSION_REVISED.pdf` |
+| `main.tex` | **Compact reading draft.** One 19 mm text grid from page 1, 10 pt body, 9 pt captions and references, figures embedded at print size after the paragraph that first cites them, no line numbers, Supporting information listed before the References. Compiles by default on Overleaf (pdfLaTeX). An author-prepared layout for reading and review, not the journal's typeset article. | `pdf/PLOS_Water_REFINED_READING.pdf` |
+| `PLOS_Water_manuscript_submission.tex` | **PLOS submission form.** Template geometry, captions only (PLOS asks for figures as separate files), continuous line numbers, double spacing, and the journal's order: Acknowledgments, References, Supporting information captions. | `pdf/PLOS_Water_REFINED_SUBMISSION.pdf` |
 
 Both files are generated from the same source and differ only in the lines listed in `build_notes/FORMAT_SPEC.md` (the
 reading copy's page settings sit in one block marked `READING PROFILE` in `main.tex`).
@@ -23,7 +23,7 @@ reading copy's page settings sit in one block marked `READING PROFILE` in `main.
 | `figures/<id>.pdf` | The 17 figures as vector PDFs, drawn into `main.tex`. |
 | `figures/upload/Fig1.tif` to `Fig17.tif` | The figure files for separate upload to PLOS, numbered by first citation. |
 | `references.bib`, `plos2025.bst` | The bibliography source and the template's style, needed only to regenerate the embedded references. |
-| `build_notes/` | Compile record, reference render check, format specification, page-layout QA, and the caption and figure-layout registers. |
+| `build_notes/` | Compile record, reference render check, format specification, page-layout audit, figure placement register and the caption relocation record. |
 | `official_template/` | The PLOS template files as downloaded, for reference. |
 
 ## Compiling
