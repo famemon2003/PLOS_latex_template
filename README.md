@@ -1,38 +1,46 @@
 # PLOS Water manuscript (LaTeX)
 
-This repository holds the LaTeX version of a PLOS Water research article, built on the official PLOS LaTeX template
+This repository holds the LaTeX source of a PLOS Water research article, built on the official PLOS LaTeX template
 (v3.8, April 2026). It is linked to Overleaf.
 
-**Status:** technically built and PLOS-template compliant, pending the author decisions listed with the manuscript
-(the title, the author list and affiliations, the corresponding author's email, acknowledgments, and the
-verification of every citation by the author). It is not ready to submit until those are settled.
+**Status:** built; not cleared for submission; placeholders and author items remain (title, authors, affiliations,
+corresponding author email, further acknowledgments, and the author's verification of every citation).
 
-## Files
+## Two entry points, one text
+
+| File | What it is | Output |
+|---|---|---|
+| `main.tex` | **Clean reading copy.** Figures embedded after the paragraph that first cites them, no line numbers, single spacing, justified abstract. Compiles by default on Overleaf. | `pdf/PLOS_Water_manuscript_REVISED_READING.pdf` |
+| `PLOS_Water_manuscript_submission.tex` | **PLOS submission form.** Captions only (PLOS asks for figures as separate files), continuous line numbers, double spacing, Supporting information captions after the references. | `pdf/PLOS_Water_manuscript_REVISED_SUBMISSION.pdf` |
+
+Both files are generated from the same source and differ only in the lines listed in `build_notes/FORMAT_SPEC.md`.
+
+## Other files
 
 | Path | What it is |
 |---|---|
-| `main.tex` | The manuscript: one file, bibliography embedded, no graphics (PLOS requirement). Compile this. |
+| `figures/<id>.pdf` | The 17 figures as vector PDFs, drawn into `main.tex`. |
+| `figures/upload/Fig1.tif` to `Fig17.tif` | The figure files for separate upload to PLOS, numbered by first citation. |
 | `references.bib`, `plos2025.bst` | The bibliography source and the template's style, needed only to regenerate the embedded references. |
-| `figures/Fig1.tif` to `Fig6.tif` | Figure files, uploaded to PLOS separately from the manuscript. |
-| `pdf/PLOS_Water_manuscript_submission.pdf` | `main.tex` compiled. |
-| `review/` | A reading copy with the figures drawn in. **Not for PLOS submission.** |
-| `build_notes/` | How the file was compiled and checked, and the reference-rendering check. |
+| `build_notes/` | Compile record, format specification, caption audit, figure numbering map and QA summaries. |
 | `official_template/` | The PLOS template files as downloaded, for reference. |
 
 ## Compiling
 
-On Overleaf, set the main document to `main.tex` (Menu, Main document) and the compiler to pdfLaTeX. Locally:
+On Overleaf, `main.tex` is the main document (compiler pdfLaTeX). To compile the submission form, choose
+Menu > Main document > `PLOS_Water_manuscript_submission.tex`. Locally, run pdflatex three times on either file:
 
 ```
 pdflatex main.tex
 pdflatex main.tex
+pdflatex main.tex
 ```
 
-No BibTeX run is needed. Supporting Information files are uploaded to PLOS separately and are not in this
-repository.
+No BibTeX run is needed, because the references are embedded. Supporting Information files are uploaded to PLOS
+separately and are not in this repository.
 
 ## Provenance
 
-`main.tex`, `references.bib`, the figures and the notes are generated from the article's source files by scripts in
-the author's project repository; edit the source there and regenerate rather than editing `main.tex` by hand, or
-record any hand edit so it can be carried back.
+The `.tex` files, `references.bib`, the figures and the notes are generated from the article's source files by scripts
+in the author's project repository; edit the source there and regenerate rather than editing the `.tex` files by hand,
+or record any hand edit so it can be carried back.
