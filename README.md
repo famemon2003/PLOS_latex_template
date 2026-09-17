@@ -10,10 +10,11 @@ corresponding author email, further acknowledgments, and the author's verificati
 
 | File | What it is | Output |
 |---|---|---|
-| `main.tex` | **Clean reading copy.** Figures embedded after the paragraph that first cites them, no line numbers, single spacing, justified abstract. Compiles by default on Overleaf. | `pdf/PLOS_Water_manuscript_REVISED_READING.pdf` |
-| `PLOS_Water_manuscript_submission.tex` | **PLOS submission form.** Captions only (PLOS asks for figures as separate files), continuous line numbers, double spacing, Supporting information captions after the references. | `pdf/PLOS_Water_manuscript_REVISED_SUBMISSION.pdf` |
+| `main.tex` | **Compact reading copy.** One 19 mm text grid from page 1, 10 pt body, 9 pt captions and references, figures embedded at print size after the paragraph that first cites them, no line numbers. Compiles by default on Overleaf. An author-prepared layout for reading and review, not the journal's typeset article. | `pdf/PLOS_Water_COMPACT_READING_REVISED.pdf` |
+| `PLOS_Water_manuscript_submission.tex` | **PLOS submission form.** Template geometry, captions only (PLOS asks for figures as separate files), continuous line numbers, double spacing, Supporting information captions after the references. | `pdf/PLOS_Water_SUBMISSION_REVISED.pdf` |
 
-Both files are generated from the same source and differ only in the lines listed in `build_notes/FORMAT_SPEC.md`.
+Both files are generated from the same source and differ only in the lines listed in `build_notes/FORMAT_SPEC.md` (the
+reading copy's page settings sit in one block marked `READING PROFILE` in `main.tex`).
 
 ## Other files
 
@@ -22,13 +23,13 @@ Both files are generated from the same source and differ only in the lines liste
 | `figures/<id>.pdf` | The 17 figures as vector PDFs, drawn into `main.tex`. |
 | `figures/upload/Fig1.tif` to `Fig17.tif` | The figure files for separate upload to PLOS, numbered by first citation. |
 | `references.bib`, `plos2025.bst` | The bibliography source and the template's style, needed only to regenerate the embedded references. |
-| `build_notes/` | Compile record, format specification, caption audit, figure numbering map and QA summaries. |
+| `build_notes/` | Compile record, reference render check, format specification, page-layout QA, and the caption and figure-layout registers. |
 | `official_template/` | The PLOS template files as downloaded, for reference. |
 
 ## Compiling
 
-On Overleaf, `main.tex` is the main document (compiler pdfLaTeX). To compile the submission form, choose
-Menu > Main document > `PLOS_Water_manuscript_submission.tex`. Locally, run pdflatex three times on either file:
+On Overleaf, `main.tex` is the main document (compiler pdfLaTeX) and gives the compact reading copy. To compile the
+submission form, choose Menu > Main document > `PLOS_Water_manuscript_submission.tex`. Locally, run pdflatex three times on either file:
 
 ```
 pdflatex main.tex

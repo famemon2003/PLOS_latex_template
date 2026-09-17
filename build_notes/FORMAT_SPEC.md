@@ -1,64 +1,97 @@
-# Format specification: reading and submission builds (M12, D-0078)
+# Format specification: compact reading copy and submission copy (M13, D-0079)
 
-**Governs:** `scripts/m11_build_latex.py` (build) and `scripts/m11_verify_latex.py` (checks).
-**Rules source:** `OFFICIAL_REQUIREMENTS_2026-09-17.md`, the PLOS Water pages checked live on 2026-09-17, and the
-official PLOS LaTeX template v3.8 (Apr 2026) in `submission/PLOS_latex_template.zip`.
+**Governs:** `scripts/m11_build_latex.py` (build) and `scripts/m11_verify_latex.py` (checks). Supersedes the M12
+specification (`staging/presentation_revision/FORMAT_SPEC.md`).
+**Rules source:**
+- the official PLOS LaTeX template v3.8 (Apr 2026) in `submission/PLOS_latex_template.zip`;
+- the PLOS Water pages checked live on 2026-09-17 (`OFFICIAL_ROUTES_2026-09-17.md`);
+- the corpus layout measurements (`CORPUS_LAYOUT_MEASUREMENTS.md`), which describe the published layout, not a
+  submission rule.
 
-One Markdown source, one converter and one placement function produce both files. The text, the numbers, the display
-order, the captions, the tables and the bibliography are identical. They differ only in the lines listed under
-"Mode differences", and the verifier checks that nothing else differs.
+One Markdown source, one converter and one placement function produce both files. The text, numbers, display order,
+captions, tables and bibliography are identical. The files differ only in the lines listed under "Mode differences",
+and the verifier checks that nothing else differs.
 
-## Common typography (both builds, from the template)
+**The reading copy is not the journal's typeset article.** It is an author-prepared layout for reading and review:
+- no PLOS logo, DOI, dates, editor or copyright lines;
+- placeholders stay "TO BE FILLED LATER".
+
+## Common typography (both builds)
 
 | Element | Setting | Source |
 |---|---|---|
-| Class and size | `article`, 10 pt, US letter | template |
-| Title page | template geometry: top 0.85 in, left 2.75 in, text width 5.25 in; footer offset 2.25 in into the margin | template |
-| Body pages | `\newgeometry{top=0.85in,left=1in,right=1in,footskip=0.75in}`, text width 6.5 in | M11 build |
-| Footer | template rule (2 pt) and page `n/N`, date left. **After `\newgeometry` the left offset is reset with `\fancyhfoffset[L]{0pt}`** so the rule and date sit inside the 1 in margins (baseline defect R01: rule ran from x = −90 to 540 pt) | M12 fix at cause |
+| Class and size | `article`, 10 pt, US Letter | template |
 | Body alignment | ragged right, paragraph indent 0.5 cm | template |
-| Abstract | **justified** in a local group (`\rightskip=0pt`, `\parfillskip=0pt plus 1fil`); the rest of the document keeps the template's ragged right | author request |
-| Headings | `\section*` for PLOS top-level sections; `\subsection*` in sentence case; no third level | template; PLOS limit of 3 levels |
-| Captions | template `caption` settings (bold label, period separator, ragged right); bold title sentence ending with a period, then the legend | template |
-| Figure label | "Fig N.", numbered by first citation | template (`\figurename{Fig}`) |
-| Tables | cell-based `tabular` in `\footnotesize` with 3 pt column separation; caption above at normal size; notes below in `flushleft`; Tables 1 and 4 as `longtable` with the header repeated on continuation pages | template; PLOS table rules |
-| Table notes | numbered notes; en dash = not available; "n/a" = not applicable | M6 conventions |
-| References | `plos2025.bst` output embedded as `thebibliography`; URLs in the text font (`\urlstyle{same}`) | template style; M12 |
-| Font encoding | `\usepackage[T1]{fontenc}`, so accented names and URL underscores copy correctly from the PDF; fonts remain embedded Type 1 | M12 (reference review R-06) |
-| Display placement | `flafter` (a display is never set before the paragraph that cites it); `placeins` `\FloatBarrier` before each section and subsection heading and before Acknowledgments. Six variants were compiled and measured; without subsection barriers Results displays moved up to 8 pages from their citation, so the barriers stay and float pages stay centred | M12 |
-| Float parameters | top 0.9, bottom 0.8, text 0.07, float page 0.75; up to 3 top, 2 bottom, 4 total | M12 |
-| Order of end matter | Acknowledgments → References → Supporting information captions | PLOS submission guidelines (overrides the template's order) |
-| PDF metadata | title "Draft manuscript (title to be filled later)"; empty author, subject, keywords and creator; no dates; no pdfTeX installation keys; links without coloured boxes | M12 privacy |
-| Placeholders | "Title: TO BE FILLED LATER", "Authors: TO BE FILLED LATER", "Affiliations: TO BE FILLED LATER", "Corresponding author email: TO BE FILLED LATER", "Further acknowledgments: TO BE FILLED LATER" | author request |
+| Abstract | justified in a local group | author request |
+| Headings | `\section*` for PLOS top-level sections; `\subsection*` in sentence case; no third level | template; PLOS |
+| Figure label | "Fig N.", numbered by first citation; caption title in bold | template |
+| Tables | cell-based, `\footnotesize` (8 pt), 3 pt column separation, column widths as fractions of `\linewidth` so one table file fits both measures; Tables 1 and 4 as `longtable` with the header repeated | template; PLOS |
+| Table notes | numbered notes; en dash = not available; "n/a" = not applicable | M6 |
+| References | `plos2025.bst` output embedded as `thebibliography`; URLs in the text font; no line break after a URL scheme's colon (`\UrlNoBreaks` adds ":") | template; M13 reference QA |
+| Font encoding | T1; Type 1 fonts embedded | M12 |
+| Display placement | `flafter` (never before the citing paragraph); `\FloatBarrier` before each section, before subsections 4.1 and 4.2, and before Acknowledgments | M13 sweep (`PAGE_LAYOUT_QA.md` §3) |
+| Float parameters | top 0.9, bottom 0.8, text 0.07, float page 0.65; up to 3 top, 2 bottom, 4 total; float-page content top-aligned | M13 sweep |
+| End matter | Acknowledgments → References → Supporting information captions | PLOS submission guidelines |
+| PDF metadata | neutral title; empty author, subject, keywords and creator; no dates; links without coloured boxes | M12 privacy |
+| Placeholders | "Title: TO BE FILLED LATER", "Authors: …", "Affiliations: …", "Corresponding author email: …", "Further acknowledgments: TO BE FILLED LATER" | author request |
 
 ## Mode differences
 
-| Aspect | Reading copy (`main.tex`) | Submission copy (`PLOS_Water_manuscript_submission.tex`) | Rule |
+| Aspect | Compact reading copy (`main.tex`) | Submission copy (`PLOS_Water_manuscript_submission.tex`) | Rule |
 |---|---|---|---|
-| Output | `PLOS_Water_manuscript_REVISED_READING.pdf` | `PLOS_Water_manuscript_REVISED_SUBMISSION.pdf` | — |
-| Figures | vector PDF from `figures/<id>.pdf` at print size (`\includegraphics` without scaling); 7.3 in figures centred with `\makebox[\linewidth][c]` and extending 0.4 in into each 1 in margin, so figure text stays at 8–12 pt | none: caption and label only; figures uploaded as `figures/upload/FigN.tif` | PLOS: "Do not include figures in your PDF" (submission only) |
+| Output | `PLOS_Water_COMPACT_READING_REVISED.pdf` | `PLOS_Water_SUBMISSION_REVISED.pdf` | — |
+| Page geometry | one grid from page 1: 19 mm left, right and top, 23 mm bottom, footskip 8 mm; text width 7.0 in; footer offset reset from page 1 | template title page (left 2.75 in), then `\clearpage` and `\newgeometry{top=0.85in,left=1in,right=1in,footskip=0.75in}` with the footer offset reset; text width 6.5 in | template; PLOS formatting waived at initial submission |
+| Leading | `\linespread{1.04}` (about 12.5 pt on 10 pt) for the longer line | double spacing (`setspace`) | PLOS: double-spaced |
+| Captions | 9 pt (`\captionsetup{font=small}`, also for long tables), skip 4 pt | template size (10 pt) | — |
+| References | 9 pt, 1 pt between entries | template size | — |
+| Float spacing | text–float 10 pt, float–float 8 pt, in-text 8 pt | template | — |
+| Figures | vector PDF from `figures/<id>.pdf` at print size (`\includegraphics` without scaling); Malawi map (4.2 in) set beside its caption in two minipages | none: caption and label only; figures uploaded as `figures/upload/FigN.tif` | PLOS: "Do not include figures in your PDF" (submission) |
 | Figure float option | `[!htbp]` | `[!ht]` | — |
-| Line numbers | none (`\linenumbers` never called) | continuous from the Introduction to the end of the body, off for the references (template convention), on again for the Supporting information captions; off inside long tables, whose notes carry none as float tables' do not | PLOS: "Use continuous line numbers" |
-| Spacing | single | `\usepackage{setspace}` and `\doublespacing` (the template's own commented lines, activated); long tables in `spacing{1}`; floats single-spaced by `setspace` | PLOS: "double-spaced" |
-| Header comment | names the file as the reading copy and points to the submission file | names the file as the submission form and points to the reading copy | — |
+| Line numbers | none | continuous from the Introduction; off for references (template convention); on for the SI captions | PLOS: continuous line numbers |
+| Where the settings live | one delimited block `% >>> READING PROFILE … % <<< READING PROFILE` before `\begin{document}` | — | M13 |
 
-Every other line of the two files is identical (`scripts/m11_verify_latex.py`, check "Modes").
+The reading-profile block may contain only:
+- `\usepackage{etoolbox}`;
+- `\geometry{…}` and `\linespread{…}`;
+- `\fancyhfoffset[L]{0pt}`;
+- the three float-separation lengths;
+- `\captionsetup` (including for long tables);
+- `\AtBeginEnvironment{thebibliography}{\small}` and `\apptocmd{\thebibliography}{…}`.
+
+The verifier checks the block's position and its commands. Every other line of the two files is identical.
+
+## Figure canvases (reading copy)
+
+All main figures are drawn for a 7.0 in measure at print size. Lettering is 8–12 pt; the smallest span in any figure
+PDF is 8.0 pt. Heights are budgeted so that a figure and its caption fit at the top of a page, and so that the two-figure
+pages in the Indian and transfer results fit together. Values are unchanged. Canvases and printed placement are listed
+in `FIGURE_LAYOUT_REGISTER.csv`.
 
 ## Checks that enforce this specification
 
-`scripts/m11_verify_latex.py` (269 checks across both modes) verifies, among others: template packages verbatim; the
-footer offset reset and the footer rule inside the margins on every page of both PDFs; line numbers continuous and
-strictly increasing in the submission PDF and absent from the reading PDF; double spacing only in submission; 17
-embedded figures in reading and none in submission; section order ending Acknowledgments, References, Supporting
-information; each display on the page of its citing paragraph or at most 4 pages later in the reading copy (the Indian subsection
-cites four large displays within about one page of text) and 1 in submission, never before; embedded fonts; no local path in either PDF; identical bibliographies; every word of the submission PDF also
-present in the reading PDF.
+`scripts/m11_verify_latex.py`, 325 checks across both modes. Among others:
+- **Structure:** template packages verbatim; the reading-profile block, its position and its allowed commands; the
+  submission geometry string.
+- **Pages:** the footer rule inside each mode's margins on every page; page n/N.
+- **Line numbers:** continuous and increasing in the submission PDF; absent from the reading PDF.
+- **Type sizes as printed:** reading body 10 pt, captions 9 pt, references 9 pt; submission 10/10/10 pt.
+- **Figures:** lettering at least 7.95 pt as printed; 17 figures embedded in the reading copy and none in the submission
+  copy.
+- **Displays:** each on its citing paragraph's page or at most 2 pages later in the reading copy, at most 1 in the
+  submission copy, never before.
+- **URLs:** no line ending with "http:" or "https:"; every link's printed text equal to its target.
+- **Across modes:** identical bibliographies; every submission word present in the reading PDF, independent of line
+  breaks and hyphenation.
+- **Text:** protected qualifications present in both, including the AI-disclosure review status; superseded wording
+  absent.
 
 ## Deviations from the template, each with its reason
 
-1. `longtable`, `flafter`, `placeins` and `fontenc` (T1) added (template permits added packages; none removed).
-2. `\urlstyle{same}` so URLs in references are set in the text font rather than typewriter.
-3. `\hypersetup{hidelinks,…}` and PDF metadata suppression (privacy and a clean reading copy).
-4. Body pages use 1 in margins (M11, kept) with the footer offset reset (M12).
-5. End-matter order follows the journal's submission guidelines, not the template sample.
-6. Abstract justified locally (author request); body stays ragged right as in the template.
+1. `longtable`, `flafter`, `placeins`, `fontenc` (T1) and, in the reading copy only, `etoolbox` are added. The template
+   permits added packages, and none is removed.
+2. `\urlstyle{same}` and a colon added to `\UrlNoBreaks`, so references never break after "https:".
+3. `\hypersetup{hidelinks,…}` and PDF metadata suppression, for privacy and a clean copy.
+4. Submission body pages use 1 in margins with the footer offset reset (M11, M12).
+5. The reading copy uses its own compact geometry and type sizes (this specification), for reading and review only.
+6. End matter follows the journal's submission guidelines, not the template sample.
+7. The abstract is justified locally (author request); the body stays ragged right.

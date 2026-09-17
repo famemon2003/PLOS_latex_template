@@ -1,0 +1,38 @@
+id,kind,old_words,new_words,target_or_note,content_moved,destination,accuracy_check,final_font_size
+Fig 1 (workflow),figure caption,84,54,title 2; target 35-65,"step-by-step description of strands, harmonisation and documentation",manuscript/sections/03_methods.md: 'Five populations are kept separate',found,reading 9.0 pt; submission 10.0 pt
+Fig 2 (evidence-map),figure caption,79,50,title 4; target 35-65,reason station locations are not drawn (redistribution terms unconfirmed),submission/DATA_AVAILABILITY_STATEMENT.md: 'No GEMStat record is redistributed or mapped in this article',found,reading 9.0 pt; submission 10.0 pt
+Fig 3 (validation-designs),figure caption,46,39,title 3; target 35-65,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 4 (action-distribution),figure caption,52,36,title 7; target 35-65,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 5 (india-map),figure caption,84,60,title 6; target 35-65,nitrate basis 50 mg/L as NO3,tables/final/T-02.md: 'Nitrate is classified at 50 mg/L as NO₃',found,reading 9.0 pt; submission 10.0 pt
+Fig 6 (india-intervals),figure caption,64,57,title 7; target 35-65,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 7 (india-support-cadence),figure caption,91,78,title 7; target 50-85,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 8 (design-discrimination),figure caption,58,44,title 6; target 35-65,pointer to retained result tables,tables/final/T-03.md: 'Values are from retained result tables (S1 Text)',found,reading 9.0 pt; submission 10.0 pt
+Fig 9 (prevalence-prauc),figure caption,56,40,title 5; target 35-65,prevalence is not population prevalence,manuscript/sections/03_methods.md: 'not population prevalence',found,reading 9.0 pt; submission 10.0 pt
+Fig 10 (channel-comparison),figure caption,63,60,title 9; target 35-65,comparison is not evidence of spatial generalisation,manuscript/sections/04_application.md: 'is not evidence of spatial generalisation',found,reading 9.0 pt; submission 10.0 pt
+Fig 11 (transfer-verdicts),figure caption,84,64,title 7; target 35-65,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 12 (transfer-ordering),figure caption,93,75,title 7; target 50-85,CGWB portal pH interval wholly below 0.5 (visible in panel A),"manuscript/sections/04_application.md: 'the CGWB portal pH interval, 0.4784 to 0.4964, lies wholly below 0.5'",found,reading 9.0 pt; submission 10.0 pt
+Fig 13 (transfer-calibration),figure caption,92,58,title 5; target 50-85,"calibration-in-the-large not assessed; no local recalibration; fitting archive surface water, external archives groundwater",manuscript/sections/04_application.md: 'Calibration-in-the-large was not assessed'; manuscript/sections/03_methods.md: 'crosses water-body type as well as geography',found; found,reading 9.0 pt; submission 10.0 pt
+Fig 14 (kwale-map),figure caption,83,61,title 8; target 35-65,archive is local and supports no national statement,"manuscript/sections/03_methods.md: 'bounded local archives, not national samples'",found,reading 9.0 pt; submission 10.0 pt
+Fig 15 (malawi-map),figure caption,56,43,title 8; target 35-65,neither archive is a national sample,"manuscript/sections/03_methods.md: 'bounded local archives, not national samples'",found,reading 9.0 pt; submission 10.0 pt
+Fig 16 (product-evidence),figure caption,88,64,title 8; target 35-65,none,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Fig 17 (documentation-threshold),figure caption,76,47,title 6; target 35-65,"abstention is a statement about the evidence base, not a ranking",manuscript/sections/05_discussion.md: 'its abstention describes the evidence base',found,reading 9.0 pt; submission 10.0 pt
+Table 1,table caption,44,25,,-,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Table 1,table notes,251,195,,local archives are not national estimates; one determination over the 23-product catalogue; no reference method named for a traceable reference workflow,"tables/final/T-04.md: 'bounded local archives, not national samples'; manuscript/sections/04_application.md: 'one determination over the 23-product catalogue'; manuscript/sections/04_application.md: 'a reference method the rule does not name'",found; found; found,8 pt (\footnotesize) in both builds
+Table 2,table caption,44,26,,-,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Table 2,table notes,253,195,,interval describes the archive as held; not a ranking of severity; a cell is not a well or a person; nitrate figures not carried between analyses,"manuscript/sections/04_application.md: 'describes the archive as held rather than the programme as now designed'; tables/final/T-02.md: 'not a ranking of severity, prevalence or exposure'; manuscript/sections/03_methods.md: 'no nitrate figure is carried between the two analyses'",found; found; found,8 pt (\footnotesize) in both builds
+Table 3,table caption,53,34,,-,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Table 3,table notes,343,271,,none of the designs is a claim about transfer to an unmonitored country; the Model B minus A column is the quantity to read; runs not re-run; no prediction-level file,"manuscript/sections/03_methods.md: 'is not carried to the transferred scores'; manuscript/sections/04_application.md: 'by 0.0215 to 0.0643 in ROC-AUC'; manuscript/SUPPORTING_INFORMATION.md: 'no prediction-level file was retained, and no fitted model object is recorded'",found; found; found,8 pt (\footnotesize) in both builds
+Table 4,table caption,39,35,,-,-,not applicable,reading 9.0 pt; submission 10.0 pt
+Table 4,table notes,163,143,,definition of ordering,manuscript/sections/02_procedure.md: 'ordering locations so that confirmatory sampling is sequenced',found,8 pt (\footnotesize) in both builds
+S1 Text,SI caption,129,27,full legend kept in the SI file,inventory of S1 contents,manuscript/SI_FULL_CAPTIONS.md: 'the 62 National Water Data Portal resource files',found,reference-list size in the reading copy
+S2 Table,SI caption,49,21,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S3 Table,SI caption,50,29,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S4 Table,SI caption,45,27,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S5 Text,SI caption,19,14,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S6 Fig,SI caption,196,28,full legend kept in the SI file,"design counts, rung, window and interpretation boundary","manuscript/SI_FULL_CAPTIONS.md: '148,029 training rows, 7,421 test observations at 1,613 test sites'",found,reference-list size in the reading copy
+S7 Table,SI caption,75,20,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S8 Table,SI caption,26,18,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S9 Data,SI caption,31,17,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S10 Text,SI caption,18,15,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
+S11 Table,SI caption,102,31,full legend kept in the SI file,interval and TDS-scale explanation,manuscript/SI_FULL_CAPTIONS.md: 'The Malawi TDS fraction is not interpretable',found,reference-list size in the reading copy
+S12 Table,SI caption,51,31,full legend kept in the SI file,none,-,not applicable,reference-list size in the reading copy
