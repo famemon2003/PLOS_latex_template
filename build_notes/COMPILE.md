@@ -25,7 +25,7 @@ No BibTeX run is needed, because the references are embedded. To regenerate them
 
 - References embedded: 52. Figures: 17, numbered by first citation.
 - Words (LaTeX-rendered, commands removed): abstract 284, body 8959 (captions, tables, Supporting information and Acknowledgments excluded).
-- `main.tex` (reading): 1187 lines, SHA-256 `cfb281f2dacd524b362e0879104a8e04cb27c36935b7bb705616ff079f7bfb2b`; clean-directory compile (pdflatex x3): 27 pages, log issues 0; `PLOS_Water_REFINED_READING.pdf` SHA-256 `2200f0c44da53810b5d651945c30ec39a08ee9c66c1912c557b268a46468ed6f`.
+- `main.tex` (reading): 1187 lines, SHA-256 `c65bbc2ef734a8f88cbbe5185375844f1f38eecdd717a2973b415ba98d72e347`; clean-directory compile (pdflatex x3): 27 pages, log issues 0; `PLOS_Water_REFINED_READING.pdf` SHA-256 `9fbbc6186e2d8a9d604cf6bfce6db51bffeedfa131b7e17b16333ae393c42389`.
 - `PLOS_Water_manuscript_submission.tex` (submission): 1154 lines, SHA-256 `c3f4e281ec16512ed0fcb6af3d1bb75b35ac28875d4b0c720653ebb72c226c7a`; clean-directory compile (pdflatex x3): 34 pages, log issues 0; `PLOS_Water_REFINED_SUBMISSION.pdf` SHA-256 `cc034f31b14e4c4da7f01a7cd1f580fe3d60924eb4c190e207bf850a2d28b3aa`.
 
 ## Log issues (errors, undefined references or citations, floats too large or unprocessed, overfull boxes of 2 pt or more)

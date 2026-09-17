@@ -32,7 +32,7 @@ and the verifier checks that nothing else differs.
 | Table notes | numbered notes; en dash = not available; "n/a" = not applicable | M6 |
 | References | `plos2025.bst` output embedded as `thebibliography`; URLs in the text font; no line break after a URL scheme's colon (`\UrlNoBreaks` adds ":") | template; M13 reference QA |
 | Font encoding | T1; Type 1 fonts embedded | M12 |
-| Display placement | `flafter` (never before the citing paragraph); `\FloatBarrier` before each section and before Acknowledgments (M14: the M13 barriers before 4.1 and 4.2 removed) | M14 sweep (`R3_PAGE_LAYOUT_AUDIT.md`) |
+| Display placement | `flafter` (never before the citing paragraph); `\FloatBarrier` before each section, before subsections 4.1 and 4.2, and before Acknowledgments (M14 sweep of ten configurations) | M14 sweep (`R3_PAGE_LAYOUT_AUDIT.md`) |
 | Float parameters | top 0.9, bottom 0.8, text 0.07, float page 0.8 (M14); up to 3 top, 2 bottom, 4 total | M14 sweep |
 | End matter | submission: Acknowledgments → References → Supporting information captions (PLOS order); reading draft: see Mode differences | PLOS submission guidelines |
 | PDF metadata | neutral title; empty author, subject, keywords and creator; no dates; links without coloured boxes | M12 privacy |
@@ -42,8 +42,8 @@ and the verifier checks that nothing else differs.
 
 | Aspect | Compact reading copy (`main.tex`) | Submission copy (`PLOS_Water_manuscript_submission.tex`) | Rule |
 |---|---|---|---|
-| Output | `PLOS_Water_COMPACT_READING_REVISED.pdf` | `PLOS_Water_SUBMISSION_REVISED.pdf` | — |
-| Page geometry | one grid from page 1: 19 mm left, right and top, 23 mm bottom, footskip 8 mm; text width 7.0 in; footer offset reset from page 1 | template title page (left 2.75 in), then `\clearpage` and `\newgeometry{top=0.85in,left=1in,right=1in,footskip=0.75in}` with the footer offset reset; text width 6.5 in | template; PLOS formatting waived at initial submission |
+| Output | `PLOS_Water_REFINED_READING.pdf` | `PLOS_Water_REFINED_SUBMISSION.pdf` | M14 (D-0080) |
+| Page geometry | one grid from page 1: 19 mm left, right and top, 23 mm bottom, footskip 10 mm (M14; 8 mm left 0.4 mm between a descender and the footer rule); text width 7.0 in; footer offset reset from page 1 | template title page (left 2.75 in) | M13, M14 |
 | Leading | `\linespread{1.04}` (about 12.5 pt on 10 pt) for the longer line | double spacing (`setspace`) | PLOS: double-spaced |
 | Captions | 9 pt (`\captionsetup{font=small}`, also for long tables), skip 4 pt | template size (10 pt) | — |
 | References | 9 pt, 1 pt between entries | template size | — |
@@ -51,6 +51,9 @@ and the verifier checks that nothing else differs.
 | Figures | vector PDF from `figures/<id>.pdf` at print size (`\includegraphics` without scaling); Malawi map (4.2 in) set beside its caption in two minipages | none: caption and label only; figures uploaded as `figures/upload/FigN.tif` | PLOS: "Do not include figures in your PDF" (submission) |
 | Figure float option | `[!htbp]` | `[!ht]` | — |
 | Line numbers | none | continuous from the Introduction; off for references (template convention); on for the SI captions | PLOS: continuous line numbers |
+| Long tables | one `longtable`, header row repeated, continuation pages labelled "Table *n*. (continued)" (M14) | — | M14 |
+| Value and unit | tied in prose and captions so neither breaks across a line; table cells keep breakable spaces, their columns being fixed and narrow (M14) | — | M14 |
+| Reference breaks | `\interlinepenalty` in `thebibliography`, so no entry and no URL is split across a page (M14) | — | M14 |
 | Float pages | top-packed: `\@fptop` 0 pt, `\@fpsep` 10 pt plus 2 pt minus 2 pt, `\@fpbot` 0 pt plus 1fil, so spare space falls at the foot and never between floats (M14) | template defaults | — |
 | Figure placement | `[!htbp]`; Fig 1 (workflow) `[!tb]`, so it is set at a page top with text below rather than alone on a float page (M14); Malawi map and caption in top-aligned minipages (M14) | `[!ht]` | — |
 | End matter | Acknowledgments → **Supporting information** → References (M14, author request) | Acknowledgments → References → Supporting information captions | PLOS submission guidelines (submission) |
@@ -76,7 +79,7 @@ in `FIGURE_LAYOUT_REGISTER.csv`.
 
 ## Checks that enforce this specification
 
-`scripts/m11_verify_latex.py`, 343 checks across both modes (M14). Among others:
+`scripts/m11_verify_latex.py`, 415 checks across both modes (M14). Among others:
 - **Structure:** template packages verbatim; the reading-profile block, its position and its allowed commands; the
   submission geometry string.
 - **Pages:** the footer rule inside each mode's margins on every page; page n/N.

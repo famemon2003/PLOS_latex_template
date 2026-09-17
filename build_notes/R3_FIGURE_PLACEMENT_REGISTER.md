@@ -30,4 +30,5 @@ Text height is 673 pt; 'share' is the canvas height as a fraction of it, before 
 - Smallest printed lettering in any figure: 8.0 pt.
 - Figures sharing a page with text: 13 of 17.
 - Largest callout-to-display gap: 2 page(s).
+- Open item (M14 R5, production review MINOR-10): Fig 1 sets "NO3" without a subscript, where the body text and the table notes write NO₃. Correcting it means regenerating the figure's lettering, which this stage's rule against redrawing figures excludes; it is carried to the author items.
 - Canvas changes at M14: `india-map` 4.8 → 4.4 in and `india-intervals` 3.9 → 3.5 in, so that Figs 5 and 6 share one float page and the queue clears a page earlier. Plotted values are unchanged (`figures/source/` is identical to tag `pre-plos3-refinement-20260917`).
